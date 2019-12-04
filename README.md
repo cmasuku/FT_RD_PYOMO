@@ -1,6 +1,4 @@
 # Reactive-Distillation-with-Pyomo
-Hi there, welcome!
-
 In this project, our goal is to build a **Fischer–Tropsch reactive distillation simulator** using **_Pyomo_**.
 
 ## Model Navigation
@@ -9,9 +7,9 @@ In this project, our goal is to build a **Fischer–Tropsch reactive distillatio
 * **global_sets:** A place for global sets (e.g `COMP_TOTAL`). Each sub-module in this project will be referencing the same sets of components and universal parameters.
 * **saved_solutions:** A place for .json or .pickle files, usually saved after certain pyomo solve, will be used either as a quick access archive or simply a temporary file.
 * **utility:** A place for helper functions we wrote to assist data gathering, model construction, debugging, analysis and data visulization.
-* **data:** This module contains all the `physical` parameters for the model. For each of the pyomo blocks, we recommend writing only `one python script`. This way each pyomo blocks only need to import once from the data module. For large sets of data, use of excel files are recommended by using `xlrd` inside corresponding data python script.
+* **data:** This module contains all the `physical` parameters for the model. For each of the pyomo blocks, we recommend writing only `one python script`. This way each pyomo block only needs to import once from the data module. For large sets of data, use of excel files is recommended by using `xlrd` inside corresponding data python script.
 
-* **physics:** This module is often refered to as `1st level physics block` in this project. Here resides all the fundemental physcis equations (or `block construction rules`) that will be used in higher level model structures. Each module will be using certain `parent_block variables` and `local variables` depending on its nature. Currently we have the following physics modules:
+* **physics:** This module is often referred to as `1st level physics block` in this project. Here resides all the fundamental physics equations (or `block construction rules`) that will be used in higher level model structures. Each module will be using certain `parent_block variables` and `local variables` depending on its nature. Currently we have the following physics modules:
   1. **Environment Variables:** Each physics block is responsible for defining its own sets, parameters and variables, however, there are certain `environment variables` that represent shared environment values. **Note:** These `environment variables` will be defined during construction of `2nd level stage block`.
       * Example Usage:  
 
@@ -46,7 +44,7 @@ In this project, our goal is to build a **Fischer–Tropsch reactive distillatio
   5. **VLLE:** Similar to VLE, water is treated as a seperate components, with its own set of rules.
 
 
-* **stages:** This module is often refered as `2nd level stage block` in this project. Here resides different types of single trays. Based on tray type (e.g reactive / non-reactive), physics equations in `1st level physics block` are selected and assmbled using `MESH` equations. To retain the ability to customize column configuration, **flow variables in this module is entirely local**, and will be linked manually in a higher level structure.
+* **stages:** This module is often referred to as `2nd level stage block` in this project. Here resides different types of single trays. Based on tray type (e.g reactive / non-reactive), physics equations in `1st level physics block` are selected and assembled using `MESH` equations. To retain the ability to customize column configuration, **flow variables in this module is entirely local**, and will be linked manually in a higher level structure.
   1. **Assemble Physics:**
       * Example Usage:  
 
@@ -61,11 +59,11 @@ In this project, our goal is to build a **Fischer–Tropsch reactive distillatio
   2. **Reactive Stage:** Equivalent to a reactive flash set-up.
   3. **Reboiler:** Equivalent to a non-reactive flash set-up.
   4. **Condenser Stage:** Currently obsolete, treat water as Henry components.
-  5. **Condenser Stage2:** Treat water as a separate component and a seperate phase.
+  5. **Condenser Stage2:** Treat water as a separate component and a separate phase.
 
-* **columns:** This module is refered as `3rd level block` in this project. Here `2nd level stage blocks` are assembled and linked to simulate a reactive distillation column. For better support of presentations and data analysis, files in this section use  `Jupyter Notebook` format.
+* **columns:** This module is referred to as `3rd level block` in this project. Here `2nd level stage blocks` are assembled and linked to simulate a reactive distillation column. For better support of presentations and data analysis, files in this section use  `Jupyter Notebook` format.
 
-* **Showcase:** Any completed model will be transfered to this section.
+* **Showcase:** Any completed model will be transferred to this section.
 
 
 ```python
@@ -88,7 +86,7 @@ model.gamma_con = pe.Constraint(model.TRAY | model.COND | model.REBO, model.COMP
 
 ```python
 # deactivate henry components constraints
-model.f_L_HENRY_con.deavtivate()
+model.f_L_HENRY_con.deactivate()
 model.Hen_con.deactivate()
 model.Hen_ref_con.deactivate()
 # ...
