@@ -1,7 +1,7 @@
 # 1st level Model Structure: Equation Block
 
-# this module define the rules for constructing a kinetics block in the master block
-# this is the global component set import, so that all modules uses the same set
+# this module defines the rules for constructing a kinetics block in the master block
+# this is the global component set import, so that all modules use the same set
 from global_sets.component import m
 from physics.bounds import kinetic_bounds
 
