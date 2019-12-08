@@ -1,8 +1,8 @@
 # 1st level Model Structure: Equation Block
 # import sys
 # sys.path.append('..')
-# this module define the rules for constructing a energy block in the master block
-# this is the global component set import, so that all modules uses the same set
+# this module defines the rules for constructing an energy block in the master block
+# this is the global component set import, so that all modules use the same set
 from global_sets.component import m
 from physics.bounds import energy_bounds
 
