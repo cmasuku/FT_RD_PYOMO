@@ -1,4 +1,4 @@
-# this contains the data necessary for modelling FT and WGS kinetics
+# this contains the data necessary for modeling FT and WGS kinetics
 
 epi=1e-6
 
