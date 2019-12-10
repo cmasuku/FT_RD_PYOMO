@@ -1,5 +1,5 @@
 # lets start with reading the excel file
-# Henry H (bar)
+# Henry's coefficient H (bar)
 # ln (H) = H0 - n_ave*dHi
 # dHi = A + B/T + C*ln(T)+DT^2 + E/T^2 (T: K)
 
