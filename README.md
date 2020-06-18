@@ -1,5 +1,5 @@
-# Reactive-Distillation-with-Pyomo
-In this project, our goal is to build a **Fischer–Tropsch reactive distillation simulator** using **_Pyomo_**.
+# Reactive-Distillation-with-PYOMO
+In this project, our goal is to build a **Fischer–Tropsch reactive distillation simulator** using **_PYOMO_**.
 
 ## Model Navigation
 **Code Map:**
