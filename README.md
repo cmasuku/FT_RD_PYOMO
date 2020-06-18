@@ -5,9 +5,9 @@ In this project, our goal is to build a **Fischer–Tropsch reactive distillatio
 **Code Map:**
 * **archive:** Model archives, completed with all necessary files to guarantee compatibility. Might not always reflect the latest changes.
 * **global_sets:** A place for global sets (e.g `COMP_TOTAL`). Each sub-module in this project will be referencing the same sets of components and universal parameters.
-* **saved_solutions:** A place for .json or .pickle files, usually saved after certain pyomo solve, will be used either as a quick access archive or simply a temporary file.
+* **saved_solutions:** A place for .json or .pickle files, usually saved after certain Pyomo solve, will be used either as a quick access archive or simply a temporary file.
 * **utility:** A place for helper functions we wrote to assist data gathering, model construction, debugging, analysis and data visulization.
-* **data:** This module contains all the `physical` parameters for the model. For each of the pyomo blocks, we recommend writing only `one python script`. This way each pyomo block only needs to import once from the data module. For large sets of data, use of excel files is recommended by using `xlrd` inside corresponding data python script.
+* **data:** This module contains all the `physical` parameters for the model. For each of the Pyomo blocks, we recommend writing only `one python script`. This way each Pyomo block only needs to import once from the data module. For large sets of data, use of excel files is recommended by using `xlrd` inside corresponding data python script.
 
 * **physics:** This module is often referred to as `1st level physics block` in this project. Here resides all the fundamental physics equations (or `block construction rules`) that will be used in higher level model structures. Each module will be using certain `parent_block variables` and `local variables` depending on its nature. Currently we have the following physics modules:
   1. **Environment Variables:** Each physics block is responsible for defining its own sets, parameters and variables, however, there are certain `environment variables` that represent shared environment values. **Note:** These `environment variables` will be defined during construction of `2nd level stage block`.
@@ -41,10 +41,10 @@ In this project, our goal is to build a **Fischer–Tropsch reactive distillatio
   2. **kinetics:** Given catalyst loading, gas phase fugacity, temperature and pressure, calculate each component's reaction rate.
   3. **enthalpy:** Given gas and liquid composition, temperature and pressure, return molar enthalpy of gas and liquid phase.
   4. **VLE:** Given gas and liquid composition, temperature and pressure, return vapor and liquid fugacity.
-  5. **VLLE:** Similar to VLE, water is treated as a seperate components, with its own set of rules.
+  5. **VLLE:** Similar to VLE, water is treated as a separate component, with its own set of rules.
 
 
-* **stages:** This module is often referred to as `2nd level stage block` in this project. Here resides different types of single trays. Based on tray type (e.g reactive / non-reactive), physics equations in `1st level physics block` are selected and assembled using `MESH` equations. To retain the ability to customize column configuration, **flow variables in this module is entirely local**, and will be linked manually in a higher level structure.
+* **stages:** This module is often referred to as `2nd level stage block` in this project. Here resides different types of single trays. Based on tray type (e.g reactive / non-reactive), physics equations in `1st level physics block` are selected and assembled using `MESH` equations. To retain the ability to customize column configuration, **flow variables in this module are entirely local**, and will be linked manually in a higher level structure.
   1. **Assemble Physics:**
       * Example Usage:  
 
